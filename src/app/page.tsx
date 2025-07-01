@@ -23,30 +23,18 @@ export default function Home() {
       {/* Dark Overlay for Better Text Readability */}
       <div className="absolute inset-0 bg-black bg-opacity-20"></div>
 
-      {/* Mobile Text - Centered */}
-      <div className="absolute bottom-0 left-0 right-0 flex justify-center pb-16 md:hidden">
-        <h1 
-          className="text-white font-bold text-center px-4"
-          style={{
-            fontSize: 'clamp(32px, 8vw, 44px)',
-            textShadow: '2px 2px 8px rgba(0,0,0,0.9)'
-          }}
-        >
-          Launching soon
-        </h1>
-      </div>
-
-      {/* Desktop Text - 54% Positioned */}
+      {/* Launching soon text - BOTTOM positioning as requested */}
       <div 
-        className="hidden md:block absolute"
         style={{
+          position: 'absolute',
           bottom: '50px',
           left: '54%',
           transform: 'translateX(-50%)',
           color: 'white',
           fontSize: '48px',
           fontWeight: 'bold',
-          textShadow: '2px 2px 8px rgba(0,0,0,0.9)'
+          textShadow: '2px 2px 8px rgba(0,0,0,0.9)',
+          zIndex: 9999
         }}
       >
         Launching soon
