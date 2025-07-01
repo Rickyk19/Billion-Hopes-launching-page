@@ -1,81 +1,117 @@
 'use client'
 
-// Trigger fresh deployment - ESLint fix applied
 export default function Home() {
   return (
-    <main className="relative w-full h-screen overflow-hidden bg-black">
-      {/* Desktop Video - Full Screen Coverage */}
-      <video
-        className="hidden md:block absolute inset-0 w-full h-full object-cover"
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        controlsList="nodownload nofullscreen noremoteplayback"
-        disablePictureInPicture
-        disableRemotePlayback
-        onContextMenu={(e) => e.preventDefault()}
-      >
-        <source src="/launching.mp4" type="video/mp4" />
-      </video>
+    <>
+      <style jsx global>{`
+        html, body {
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          width: 100%;
+          height: 100%;
+        }
+        .desktop-only {
+          display: none;
+        }
+        .mobile-only {
+          display: block;
+        }
+        @media (min-width: 768px) {
+          .desktop-only {
+            display: block;
+          }
+          .mobile-only {
+            display: none;
+          }
+        }
+      `}</style>
+      
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        backgroundColor: 'black',
+        overflow: 'hidden'
+      }}>
+        {/* Desktop Video - FULL SCREEN NO SPACES */}
+        <video
+          className="desktop-only"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover'
+          }}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+        >
+          <source src="/launching.mp4" type="video/mp4" />
+        </video>
 
-      {/* Mobile Video - Fit to Screen */}
-      <video
-        className="block md:hidden absolute inset-0 w-full h-full object-contain"
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        controlsList="nodownload nofullscreen noremoteplayback"
-        disablePictureInPicture
-        disableRemotePlayback
-        onContextMenu={(e) => e.preventDefault()}
-      >
-        <source src="/launching.mp4" type="video/mp4" />
-      </video>
+        {/* Mobile Video - FIT TO SCREEN */}
+        <video
+          className="mobile-only"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain'
+          }}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+        >
+          <source src="/launching.mp4" type="video/mp4" />
+        </video>
 
-      {/* Dark Overlay for Better Text Readability */}
-      <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+        {/* Mobile Text */}
+        <div 
+          className="mobile-only"
+          style={{
+            position: 'absolute',
+            bottom: '30px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            color: 'white',
+            fontSize: '28px',
+            fontWeight: 'bold',
+            textShadow: '2px 2px 8px rgba(0,0,0,0.9)',
+            zIndex: 9999
+          }}
+        >
+          Launching soon
+        </div>
 
-      {/* Mobile Text - Centered and smaller */}
-      <div 
-        className="block md:hidden text-white text-center"
-        style={{
-          position: 'absolute',
-          bottom: '30px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          color: 'white !important',
-          fontSize: '28px',
-          fontWeight: 'bold',
-          textShadow: '2px 2px 8px rgba(0,0,0,0.9)',
-          zIndex: 9999,
-          whiteSpace: 'nowrap'
-        }}
-      >
-        Launching soon
+        {/* Desktop Text - 54% POSITIONED AS REQUESTED */}
+        <div 
+          className="desktop-only"
+          style={{
+            position: 'absolute',
+            bottom: '50px',
+            left: '54%',
+            transform: 'translateX(-50%)',
+            color: 'white',
+            fontSize: '48px',
+            fontWeight: 'bold',
+            textShadow: '2px 2px 8px rgba(0,0,0,0.9)',
+            zIndex: 9999
+          }}
+        >
+          Launching soon
+        </div>
       </div>
-
-      {/* Desktop Text - 54% positioned */}
-      <div 
-        className="hidden md:block text-white"
-        style={{
-          position: 'absolute',
-          bottom: '50px',
-          left: '54%',
-          transform: 'translateX(-50%)',
-          color: 'white !important',
-          fontSize: '48px',
-          fontWeight: 'bold',
-          textShadow: '2px 2px 8px rgba(0,0,0,0.9)',
-          zIndex: 9999,
-          whiteSpace: 'nowrap'
-        }}
-      >
-        Launching soon
-      </div>
-    </main>
+    </>
   )
 } 
