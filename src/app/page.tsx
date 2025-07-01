@@ -26,7 +26,7 @@ export default function Home() {
           }}
         >
           <source src="/launching.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
+          Your browser cannot support the video tag.
         </video>
       </div>
 
