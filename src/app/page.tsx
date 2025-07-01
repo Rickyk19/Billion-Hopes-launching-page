@@ -56,8 +56,7 @@ export default function Home() {
               <circle cx="15" cy="14" r="1"/>
             </svg>
           </div>
-          <div className="text-white text-3xl font-bold mb-3 tracking-wide">BILLION HOPES</div>
-          <div className="text-gray-300 text-lg mb-16">AI FOR REAL IMPACT</div>
+          <div className="text-white text-3xl font-bold mb-16 tracking-wide">BILLION HOPES</div>
         </div>
       </div>
 
