@@ -1,5 +1,6 @@
 'use client'
 
+// Trigger fresh deployment - ESLint fix applied
 export default function Home() {
   return (
     <main 
