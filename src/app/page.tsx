@@ -2,116 +2,96 @@
 
 export default function Home() {
   return (
-    <>
+    <div style={{ 
+      position: 'relative',
+      width: '100vw', 
+      height: '100vh', 
+      overflow: 'hidden',
+      backgroundColor: '#000000'
+    }}>
+      {/* Background Video - Responsive */}
+      <video
+        src="/launching.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          minWidth: '100%',
+          minHeight: '100%',
+          width: 'auto',
+          height: 'auto',
+          zIndex: 1
+        }}
+      />
+
+      {/* Dark overlay for better text visibility */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'rgba(0, 0, 0, 0.2)',
+        zIndex: 2
+      }} />
+
+      {/* Mobile Text - Bottom Center */}
+      <div 
+        style={{
+          position: 'absolute',
+          bottom: '30px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 3,
+          color: '#ffffff',
+          fontSize: '28px',
+          fontWeight: 'bold',
+          textAlign: 'center',
+          textShadow: '2px 2px 8px rgba(0,0,0,0.8)',
+          display: 'block'
+        }}
+        className="block md:hidden"
+      >
+        Launching soon
+      </div>
+
+      {/* Desktop Text - 54% Position */}
+      <div 
+        style={{
+          position: 'absolute',
+          bottom: '50px',
+          left: '54%',
+          transform: 'translateX(-50%)',
+          zIndex: 3,
+          color: '#ffffff',
+          fontSize: '48px',
+          fontWeight: 'bold',
+          textShadow: '2px 2px 8px rgba(0,0,0,0.8)',
+          whiteSpace: 'nowrap'
+        }}
+        className="hidden md:block"
+      >
+        Launching soon
+      </div>
+
+      {/* Global styles */}
       <style jsx global>{`
-        html, body {
+        * {
           margin: 0;
           padding: 0;
+          box-sizing: border-box;
+        }
+        html, body {
           overflow: hidden;
           width: 100%;
           height: 100%;
         }
-        .desktop-only {
-          display: none;
-        }
-        .mobile-only {
-          display: block;
-        }
-        @media (min-width: 768px) {
-          .desktop-only {
-            display: block;
-          }
-          .mobile-only {
-            display: none;
-          }
-        }
       `}</style>
-      
-      <div style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100vw',
-        height: '100vh',
-        backgroundColor: 'black',
-        overflow: 'hidden'
-      }}>
-        {/* Desktop Video - FULL SCREEN NO SPACES */}
-        <video
-          className="desktop-only"
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover'
-          }}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-        >
-          <source src="/launching.mp4" type="video/mp4" />
-        </video>
-
-        {/* Mobile Video - FIT TO SCREEN */}
-        <video
-          className="mobile-only"
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'contain'
-          }}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-        >
-          <source src="/launching.mp4" type="video/mp4" />
-        </video>
-
-        {/* Mobile Text */}
-        <div 
-          className="mobile-only"
-          style={{
-            position: 'absolute',
-            bottom: '30px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            color: 'white',
-            fontSize: '28px',
-            fontWeight: 'bold',
-            textShadow: '2px 2px 8px rgba(0,0,0,0.9)',
-            zIndex: 9999
-          }}
-        >
-          Launching soon
-        </div>
-
-        {/* Desktop Text - 54% POSITIONED AS REQUESTED */}
-        <div 
-          className="desktop-only"
-          style={{
-            position: 'absolute',
-            bottom: '50px',
-            left: '54%',
-            transform: 'translateX(-50%)',
-            color: 'white',
-            fontSize: '48px',
-            fontWeight: 'bold',
-            textShadow: '2px 2px 8px rgba(0,0,0,0.9)',
-            zIndex: 9999
-          }}
-        >
-          Launching soon
-        </div>
-      </div>
-    </>
+    </div>
   )
 } 
