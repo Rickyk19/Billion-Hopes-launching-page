@@ -25,12 +25,13 @@ export default function Home() {
 
       {/* Launching soon text - BOTTOM positioning as requested */}
       <div 
+        className="text-white"
         style={{
           position: 'absolute',
           bottom: '50px',
           left: '54%',
           transform: 'translateX(-50%)',
-          color: 'white',
+          color: 'white !important',
           fontSize: '48px',
           fontWeight: 'bold',
           textShadow: '2px 2px 8px rgba(0,0,0,0.9)',
