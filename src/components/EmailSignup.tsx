@@ -37,7 +37,7 @@ export default function EmailSignup() {
       >
         <CheckIcon className="w-6 h-6 text-green-400 mr-3" />
         <span className="text-green-400 font-medium">
-          Thanks! You're on the waitlist.
+          Thanks! You are on the waitlist.
         </span>
       </motion.div>
     )
