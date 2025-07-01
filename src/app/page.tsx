@@ -4,9 +4,25 @@
 export default function Home() {
   return (
     <main className="relative w-full h-screen overflow-hidden bg-black">
-      {/* Video Background */}
+      {/* Desktop Video - Full Screen Coverage */}
       <video
-        className="absolute inset-0 w-full h-full object-contain md:object-cover"
+        className="hidden md:block absolute inset-0 w-full h-full object-cover"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        controlsList="nodownload nofullscreen noremoteplayback"
+        disablePictureInPicture
+        disableRemotePlayback
+        onContextMenu={(e) => e.preventDefault()}
+      >
+        <source src="/launching.mp4" type="video/mp4" />
+      </video>
+
+      {/* Mobile Video - Fit to Screen */}
+      <video
+        className="block md:hidden absolute inset-0 w-full h-full object-contain"
         autoPlay
         loop
         muted
